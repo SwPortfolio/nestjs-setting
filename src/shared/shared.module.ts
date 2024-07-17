@@ -2,6 +2,7 @@ import { Global, Module } from '@nestjs/common';
 import { DatabaseConnection } from './database/database.connection';
 import { AwsS3 } from './aws/aws.s3';
 import { ExternalApi } from './externalApi/external.api';
+import { ResponseUtil } from './response/response.util';
 
 /**
  * Shared Module: 여러 Feature 모듈에서 사용할 수 있는 서비스나 팩토리 등을 공유하기 위한 모듈입니다.
@@ -10,7 +11,7 @@ import { ExternalApi } from './externalApi/external.api';
  */
 @Global()
 @Module({
-  providers: [DatabaseConnection, AwsS3, ExternalApi],
-  exports: [DatabaseConnection, AwsS3, ExternalApi],
+  providers: [DatabaseConnection, AwsS3, ExternalApi, ResponseUtil],
+  exports: [DatabaseConnection, AwsS3, ExternalApi, ResponseUtil],
 })
 export class SharedModule {}

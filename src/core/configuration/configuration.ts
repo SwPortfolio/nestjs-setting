@@ -35,6 +35,8 @@ const configuration: Configuration = {
     s3Region: process.env.S3REGION || '',
     s3Bucket: process.env.S3BUCKET || '',
   },
+
+  yammiDomain: process.env.YAMMI_DOMAIN || '',
 };
 
 const configFunction: ConfigFactory<Configuration> = () => configuration;

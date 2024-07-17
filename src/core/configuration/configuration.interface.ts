@@ -23,4 +23,6 @@ export interface Configuration {
     s3Region: string;
     s3Bucket: string;
   };
+
+  yammiDomain: string;
 }

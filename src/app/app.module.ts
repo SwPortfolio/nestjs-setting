@@ -7,6 +7,7 @@ import configuration from '../core/configuration/configuration';
 import { ConfigModule } from '@nestjs/config';
 import { CoreModule } from '../core/core.module';
 import { SharedModule } from '../shared/shared.module';
+import { FeatureModule } from '../feature/feature.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { SharedModule } from '../shared/shared.module';
       renderPath: '/',
     }),
     CoreModule,
+    FeatureModule,
     SharedModule,
   ],
   controllers: [AppController],
