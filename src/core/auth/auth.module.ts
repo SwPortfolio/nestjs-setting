@@ -42,6 +42,6 @@ import { JwtSignService } from './jwt/jwt-sign.service';
   ],
   controllers: [AuthController],
   providers: [JwtAccessStrategy, JwtRefreshStrategy, JwtSignService],
-  exports: [JwtSignService]
+  exports: [JwtSignService],
 })
 export class AuthModule {}

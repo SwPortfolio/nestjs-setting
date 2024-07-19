@@ -1,11 +1,23 @@
-import { Controller, Get, Req, Res, Request, Response, UseGuards, Post } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Req,
+  Res,
+  Request,
+  Response,
+  UseGuards,
+  Post,
+} from '@nestjs/common';
 import { TestService } from './service/test.service';
 import { ResponseUtil } from '../../shared/response/response.util';
 import { AuthGuard } from '@nestjs/passport';
 
 @Controller('test')
 export class TestController {
-  constructor(private readonly testService: TestService, private readonly responseUtil: ResponseUtil) {}
+  constructor(
+    private readonly testService: TestService,
+    private readonly responseUtil: ResponseUtil,
+  ) {}
 
   /**
    * aligo send sms test
@@ -15,7 +27,7 @@ export class TestController {
   @Get()
   async index(@Req() req: Request, @Res() res: Response) {
     try {
-      await this.testService.test()
+      await this.testService.test();
       return this.responseUtil.response(res, 200, '0000', {}, {});
     } catch (err) {
       return this.responseUtil.response(res, 500, '9999', {}, {});

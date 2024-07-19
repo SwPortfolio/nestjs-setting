@@ -21,9 +21,9 @@ export class ExternalApi {
           sender: '023920700',
           receiver: receivers.join(','),
           msg: msg,
-          testmode_yn: 'Y'
-        }
-      })
+          testmode_yn: 'Y',
+        },
+      });
       console.log(response);
     } catch (err) {
       throw err;
@@ -35,8 +35,8 @@ export class ExternalApi {
       const response = await axios({
         method: 'POST',
         url: this.configService.get('yammiDomain'),
-        data: {}
-      })
+        data: {},
+      });
 
       return response.data;
     } catch (err) {

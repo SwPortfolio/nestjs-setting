@@ -7,7 +7,9 @@ export class ResponseUtil {
   private resCode: string;
   private message: { kor: string; eng: string } | string;
 
-  private static readonly STATUSCODE: number[] = [200, 201, 202, 204, 301, 302, 303, 307, 400, 401, 403, 404, 502, 503, 504];
+  private static readonly STATUSCODE: number[] = [
+    200, 201, 202, 204, 301, 302, 303, 307, 400, 401, 403, 404, 502, 503, 504,
+  ];
 
   private static readonly MESSAGES: object = {
     // status 200
@@ -48,12 +50,15 @@ export class ResponseUtil {
         this.isEmptyObject(message) === false
           ? message
           : this.getMessageByCode(resCode) !== undefined
-            ? this.getMessageByCode(resCode)
-            : { kor: '', eng: '' };
+          ? this.getMessageByCode(resCode)
+          : { kor: '', eng: '' };
 
       const valid = this.statusCodeValid(statusCode);
       if (valid === -1) {
-        throw new HttpException({ message: 'status code not available' }, HttpStatus.SERVICE_UNAVAILABLE);
+        throw new HttpException(
+          { message: 'status code not available' },
+          HttpStatus.SERVICE_UNAVAILABLE,
+        );
       } else {
         return this.res
           .status(this.statusCode)
