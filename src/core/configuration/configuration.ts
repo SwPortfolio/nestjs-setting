@@ -7,8 +7,8 @@ import * as path from 'path';
 process.env.NODE_ENV === 'production'
   ? config({ path: path.join(__dirname, '../env/.env.production') })
   : process.env.NODE_ENV === 'development'
-    ? config({ path: path.join(__dirname, '../env/.env.development') })
-    : config({ path: path.join(__dirname, '../env/.env.local') });
+  ? config({ path: path.join(__dirname, '../env/.env.development') })
+  : config({ path: path.join(__dirname, '../env/.env.local') });
 
 const configuration: Configuration = {
   node_env: process.env.NODE_ENV || 'local',
